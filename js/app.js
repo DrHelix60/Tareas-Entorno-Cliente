@@ -1,11 +1,13 @@
 function saludar() {
-  console.log("Botón Saludar pulsado");
-  alert("Hola, soy TU NOMBRE APELLIDOS");
+  console.log("Iniciando terminal de comunicación");
+  console.log("Cargando sistemas");
+  alert("Bienvenido al sistema");
 }
 function simularError() {
-  console.error("Error simulado: esto es una prueba de consola");
+    console.warn("Iniciando simulacro de error")
+  console.error("Fallo crítico del sistema!");
 }
 function queNavegadorSoy() {
-  console.log("Botón ¿Qué navegador soy? pulsado");
+  console.log("Comprobando navegador del usuario");
   alert(navigator.userAgent);
 }
