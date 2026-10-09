@@ -46,7 +46,8 @@
 
     <!-- ============================================================
          EJERCICIO 1 · La card modelo
-         ============================================================ -->
+         ============================================================ 
+    -->
     <section class="card mb-4 shadow-sm">
 
       <!-- 1) Título del ejercicio -->
@@ -128,9 +129,14 @@
                Ejercicio 3 → Expresión / Espero / Sale, y tu frase sobre cuándo manda la cadena y cuándo el número
                Ejercicio 4 → tu ficha, y el error de la const dentro de un <div class="alert alert-danger">
            · el botón: onclick="ejercicio2()", onclick="ejercicio3()"…
-         ============================================================ -->
+         ============================================================ 
+    -->
 
-         <section class="card mb-4 shadow-sm">
+    <!-- ============================================================
+         EJERCICIO 2 · 
+         ============================================================ 
+    -->
+    <section class="card mb-4 shadow-sm">
 
       <!-- 1) Título del ejercicio -->
       <div class="card-header d-flex align-items-center gap-2">
@@ -196,6 +202,83 @@
       </div>
     </section>
 
+
+    <!-- ============================================================
+         EJERCICIO 3
+         ============================================================ 
+    -->
+    <section class="card mb-4 shadow-sm">
+
+      <!-- 1) Título del ejercicio -->
+      <div class="card-header d-flex align-items-center gap-2">
+        <span class="badge text-bg-primary">Ejercicio 3</span>
+        <h2 class="h5 mb-0">Coerción y comparaciones</h2>
+      </div>
+
+      <div class="card-body">
+
+        <!-- 2) El código: cuando termines, copia aquí tu función ejercicio1() de js/app.js.
+                Si tu código lleva los signos < o >, escríbelos como &lt; y &gt; -->
+        <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio3() {
+  console.log("--- Ejercicio 3 · Coerción y comparaciones ---");
+
+  // Ejemplo: una expresión que mezcla tipos
+  console.log('"5" - 2 →', "5" - 2);   // espero NaN (La resta es una operacion que no existe para string)
+  console.log("5 - \"2\" →", 5 - "2"); //espero 3 (Espero que el primer valor determine a que tipo de dato se debe castear el siguiente)
+  console.log("true && 0 →", true && 0); //espero false
+  console.log("true && \"true\" →", true && "true"); //espero true (Quiero ver si se puede castear el string asi de flexiblemente a boolean)
+  console.log("\"5\" + 6 + 2 →", "5" + 6 + 2 ); //espero string (supongo que la combinacion de casteos minimos no predomina sobre el orden de productos)
+  console.log("5 + 6 + \"7\" →", 5 + 6 + "7"), // espero 18 (Lo pongo por si el orden no tiene preferencia, si string tiene prioridad sin mas, se haria la suma numerica primero y luego concatenacion, dando 117)
+
+  // Ejemplo: la misma pareja comparada con == y con ===
+  console.log('5 == "5" →', 5 == "5");     // espero true
+  console.log('5 === "5" →', 5 === "5");   // espero false
+
+  console.log('0 == false →', 0 == false);     // espero true
+  console.log('0 === false →', 0 === false);   // espero false
+
+  console.log('null == undefined →', null == undefined);     // espero false (undefined tambien sale como object?)
+  console.log('null === undefined →', null === undefined);   // espero false (incluso si ambos son object, son valores distintos creo)
+}</code></pre>
+
+        <!-- 3) La tabla «Espero / Sale», rellenada a mano.
+                Una fila por variable. Si te equivocas, añade en la columna «Sale» el badge:
+                <span class="badge text-bg-danger">Fallé</span> -->
+        <div class="table-responsive">
+          <table class="table table-sm table-striped align-middle mb-2">
+            <thead class="table-primary">
+              <tr><th scope="col">Expresión</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>"5" - 2</code></td><td><code>NaN <span class="badge text-bg-danger">Fallé</span></code></td><td><code>3</code></td></tr>
+              <tr><td><code>5 - "2"</code></td><td><code>3</code></td><td><code>3</code></td></tr>
+              <tr><td><code>true && 0</code></td><td><code>false <span class="badge text-bg-danger">Fallé</span></code></td><td><code>0</code></td></tr>
+              <tr><td><code>true && "true"</code></td><td><code>true</code></td><td><code>true</code></td></tr>
+              <tr><td><code>"5" + 6 + 2</code></td><td><code>562</code></td><td><code>562</code></td></tr>
+              <tr><td><code>5 + 6 + "7"</code></td><td><code>18 <span class="badge text-bg-danger">Fallé</span></code></td><td><code>117</code></td></tr>
+              <tr><td><code>"5 == "5"</code></td><td><code>true</code></td><td><code>true</code></td></tr>
+              <tr><td><code>"5 === "5"</code></td><td><code>false</code></td><td><code>false</code></td></tr>
+              <tr><td><code>0 == false</code></td><td><code>true</code></td><td><code>true</code></td></tr>
+              <tr><td><code>0 === false</code></td><td><code>false</code></td><td><code>false</code></td></tr>
+              <tr><td><code>null == undefined</code></td><td><code>false <span class="badge text-bg-danger">Fallé</span></code></td><td><code>true</code></td></tr>
+              <tr><td><code>null === undefined</code></td><td><code>false</code></td><td><code>false</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 4) Tu explicación -->
+        <p class="small mb-0"><strong>Cuándo manda quién</strong> Al principio pensé que el orden de los factores establecía quién mandaba, pero parece que es un sistema jerárquico, donde string manda sobre todos los demás. Todo se va resolviendo sin castear por orden hasta que se requiera un casteo, donde el tipo de dato preferente fuerza al otro, independientemente del orden o la cantidad de operaciones previas</p>
+      </div>
+
+      <!-- 5) El botón. onclick="ejercicio1()" hace que, al pulsarlo, se ejecute la función ejercicio1() de js/app.js.
+              Cómo funciona lo veremos más adelante, con los eventos. De momento, cópialo tal cual y cambia solo el número. -->
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" onclick="ejercicio3()">
+          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 3
+        </button>
+        <span class="small text-body-secondary ms-2">El resultado sale en la consola (F12).</span>
+      </div>
+    </section>
   </main>
 
   <footer class="bg-body-tertiary border-top py-3">

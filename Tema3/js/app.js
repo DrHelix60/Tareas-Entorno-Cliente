@@ -79,15 +79,23 @@ function ejercicio3() {
   console.log("--- Ejercicio 3 · Coerción y comparaciones ---");
 
   // Ejemplo: una expresión que mezcla tipos
-  console.log('"5" - 2 →', "5" - 2);   // espero [tu predicción]
-
-  // TODO: cinco expresiones más que mezclen tipos (al menos dos inventadas por ti), cada una con su «espero …».
+  console.log('"5" - 2 →', "5" - 2);   // espero NaN (La resta es una operacion que no existe para string)
+  console.log("5 - \"2\" →", 5 - "2"); //espero 3 (Espero que el primer valor determine a que tipo de dato se debe castear el siguiente)
+  console.log("true && 0 →", true && 0); //espero false
+  console.log("true && \"true\" →", true && "true"); //espero true (Quiero ver si se puede castear el string asi de flexiblemente a boolean)
+  console.log("\"5\" + 6 + 2 →", "5" + 6 + 2 ); //espero string (supongo que la combinacion de casteos minimos no predomina sobre el orden de productos)
+  console.log("5 + 6 + \"7\" →", 5 + 6 + "7"), // espero 18 (Lo pongo por si el orden no tiene preferencia, si string tiene prioridad sin mas, se haria la suma numerica primero y luego concatenacion, dando 117)
 
   // Ejemplo: la misma pareja comparada con == y con ===
-  console.log('5 == "5" →', 5 == "5");     // espero [tu predicción]
-  console.log('5 === "5" →', 5 === "5");   // espero [tu predicción]
+  console.log('5 == "5" →', 5 == "5");     // espero true
+  console.log('5 === "5" →', 5 === "5");   // espero false
 
-  // TODO: haz lo mismo con 0 y false, y con null y undefined.
+  console.log('0 == false →', 0 == false);     // espero true
+  console.log('0 === false →', 0 === false);   // espero false
+
+  console.log('null == undefined →', null == undefined);     // espero false (quiero creer que darle valor null a algo y no darle valor son cosas distintas)
+  console.log('null === undefined →', null === undefined);   // espero false (no creo que ambos sean object)
+
 }
 
 
