@@ -279,11 +279,65 @@
         <span class="small text-body-secondary ms-2">El resultado sale en la consola (F12).</span>
       </div>
     </section>
+
+    <!-- ============================================================
+         EJERCICIO 1 · La card modelo
+         ============================================================ 
+    -->
+    <section class="card mb-4 shadow-sm">
+
+      <!-- 1) Título del ejercicio -->
+      <div class="card-header d-flex align-items-center gap-2">
+        <span class="badge text-bg-primary">Ejercicio 4</span>
+        <h2 class="h5 mb-0">Plantilla de Cadenas</h2>
+      </div>
+
+      <div class="card-body">
+
+        <!-- 2) El código: cuando termines, copia aquí tu función ejercicio1() de js/app.js.
+                Si tu código lleva los signos < o >, escríbelos como &lt; y &gt; -->
+        <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio4() {
+  console.log("--- Ejercicio 4 · Tu ficha con plantillas de cadena ---");
+
+  // Tus datos, con const
+  const nombre = "Rafa";
+  const ciclo = "DAW";
+  const curso = "2º";
+  const aficion = "diseñar juegos";
+  
+  let horasEstudio = 2;
+  horasEstudio += 6;
+
+  const ficha = `Soy ${nombre}. Estudio en el ${curso} año del ciclo de ${ciclo}. Además, me gusta ${aficion}. Esta semana llevo ${horasEstudio} horas de estudio.`;
+  alert(ficha);
+  console.log(ficha);
+
+  const fichaConMas = "Soy " + nombre + ". Estudio en el " + curso + " año del ciclo " + ciclo + ". Además, me gusta " + aficion + ". Esta semana llevo " + horasEstudio + " horas de estudio.";
+  console.log(fichaConMas);
+
+  console.log(ficha === fichaConMas);
+}</code></pre>
+        <div class="alert alert-danger">Uncaught TypeError: Assignment to constant variable.</div>
+
+        <!-- 4) Tu explicación -->
+        <p class="small mb-0"><strong>Assingment to Constant Variable:</strong> Las variables "constant" están pensadas para no permitir cambios, por lo que cuando una línea de código trata de sobreescribir el valor de una, da un error en lugar de ejecutarlo.</p>
+      </div>
+
+      <!-- 5) El botón. onclick="ejercicio1()" hace que, al pulsarlo, se ejecute la función ejercicio1() de js/app.js.
+              Cómo funciona lo veremos más adelante, con los eventos. De momento, cópialo tal cual y cambia solo el número. -->
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" onclick="ejercicio4()">
+          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 4
+        </button>
+        <span class="small text-body-secondary ms-2">El resultado sale en la consola (F12).</span>
+      </div>
+    </section>
+
   </main>
 
   <footer class="bg-body-tertiary border-top py-3">
     <div class="container small text-body-secondary">
-      [Tu nombre y apellidos] · DWEC 26/27 · Tarea 3 · Las capturas, la reflexión y las fuentes están en el README.
+      Rafael Santiago De La Torre jiménez · DWEC 26/27 · Tarea 3 · Las capturas, la reflexión y las fuentes están en el README.
     </div>
   </footer>
 

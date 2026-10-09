@@ -46,12 +46,8 @@
 
 ## Reflexión
 
-[De 5 a 8 líneas: ¿qué conversiones te resultaron más intuitivas y cuáles te sorprendieron? Pon ejemplos concretos de tus tablas.]
+Me ha sorprendido que el tipo String tenga prevalencia sobre todos los demás, forzando que los demás sean casteados. Me ha decepcionado un poco, pero tiene sentido al ser el tipo de dato más complicado de castear (o al menos imagino que lo es). también me sorprendió que el estado de una variable mientras espera un valor (undefined) y el valor que representa la ausencia de valor sean iguales ante el comparador "==". Creo que habrían casos de uso para diferenciarlos. Si es verdad que al usar "===" si que son distintos, pero imagino que es porque "null" es tipo "object", si no fuera así, qué motivo habría para que no fueran del mismo tipo de dato. 
 
 ## Fuentes
 
 - [Título de la página](https://enlace-a-la-fuente)
-
-## Uso de IA
-
-[Si has usado IA: qué herramienta, para qué y qué hiciste después con su respuesta. Si no la has usado, borra este apartado.]
