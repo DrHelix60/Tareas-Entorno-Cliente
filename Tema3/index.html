@@ -94,13 +94,17 @@
             </thead>
             <tbody>
               <tr><th scope="row">edad</th><td><code>20</code></td><td><code>number</code></td><td><code>number</code></td></tr>
-              <tr><th scope="row">[variable]</th><td><code>[valor]</code></td><td><code>[lo que esperas]</code></td><td><code>[lo que sale]</code></td></tr>
+              <tr><th scope="row">nombre</th><td><code>"Pepito"</code></td><td><code>string</code></td><td><code>string</code></td></tr>
+              <tr><th scope="row">Booleano</th><td><code>true</code></td><td><code>boolean</code></td><td><code>boolean</code></td></tr>
+              <tr><th scope="row">Nulo</th><td><code>null</code></td><td><code>null</code><span class="badge text-bg-danger">Fallé</span></td><td><code>object</code></td></tr>
+              <tr><th scope="row">variable</th><td><code></code></td><td><code>undefined</code></td><td><code>undefined</code></td></tr>
+              <tr><th scope="row">numeroGrande</th><td><code>10n</code></td><td><code>bigint</code></td><td><code>bigint</code></td></tr>
             </tbody>
           </table>
         </div>
 
         <!-- 4) Tu explicación -->
-        <p class="small mb-0"><strong>El caso de null:</strong> [explica en una línea qué pasa con typeof null]</p>
+        <p class="small mb-0"><strong>El caso de null:</strong> Debido a un error de diseño en los inicios de JavaScript en 1995, el puntero de memorio de los valores null se interpretaba como objeto, y cambiarlo ahora supondría demasiado esfuerzo para la utilidad que tendría</p>
       </div>
 
       <!-- 5) El botón. onclick="ejercicio1()" hace que, al pulsarlo, se ejecute la función ejercicio1() de js/app.js.
@@ -125,6 +129,72 @@
                Ejercicio 4 → tu ficha, y el error de la const dentro de un <div class="alert alert-danger">
            · el botón: onclick="ejercicio2()", onclick="ejercicio3()"…
          ============================================================ -->
+
+         <section class="card mb-4 shadow-sm">
+
+      <!-- 1) Título del ejercicio -->
+      <div class="card-header d-flex align-items-center gap-2">
+        <span class="badge text-bg-primary">Ejercicio 2</span>
+        <h2 class="h5 mb-0">Conversiones Explícitas</h2>
+      </div>
+
+      <div class="card-body">
+
+        <!-- 2) El código: cuando termines, copia aquí tu función ejercicio1() de js/app.js.
+                Si tu código lleva los signos < o >, escríbelos como &lt; y &gt; -->
+        <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio2() {
+        console.log("--- Ejercicio 2 · Conversiones explícitas ---");
+
+        const a = String(123);   // espero string
+        console.log("String(123) →", a, typeof a);
+
+        const b = Number("12abc"); //espero number (12)
+        console.log("Number(\"12abc\") →" , b, typeof b );
+
+        const c = Number(""); //espero object (null)
+        console.log("Number(\"\") →", c, typeof c);
+
+        const d = Number(true); //espero number (1)
+        console.log("Number(true) →", d, typeof d);
+
+        const e = Boolean(0); //espero boolean(true)
+        console.log("Boolean(0) →", e, typeof e);
+
+        const f = Boolean("Texto Cualquiera"); //espero boolean(true)
+        console.log(Boolean(\"Texto Cualquiera\" →", f, typeof f));
+
+        const g = Boolean(""); //espero boolean(false)
+        console.log("Boolean(\"\" →", g, typeof g);
+        }</code></pre>
+
+        <!-- 3) La tabla «Espero / Sale», rellenada a mano.
+                Una fila por variable. Si te equivocas, añade en la columna «Sale» el badge:
+                <span class="badge text-bg-danger">Fallé</span> -->
+        <div class="table-responsive">
+          <table class="table table-sm table-striped align-middle mb-2">
+            <thead class="table-primary">
+              <tr><th scope="col">Conversión</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row"><code>String(123)</code></th><td><code>string</code></td><td><code>String (123)</code></td></tr>
+              <tr><th scope="row"><code>Number("12abc")</code></th><td><code>number (12) <span class="badge text-bg-danger">Fallé</span></code></td><td><code>number (NaN)</code></td></tr>
+              <tr><th scope="row"><code>Number("")</code></th><td><code>object (null) <span class="badge text-bg-danger">Fallé</span></code></td><td><code>number (0)</code></td></tr>
+              <tr><th scope="row"><code>Number(true)</code></th><td><code>number (1)</code></td><td><code>number (1)</code></td></tr>
+              <tr><th scope="row"><code>Boolean(0)</code></th><td><code>boolean (false)</code></td><td><code>boolean (false)</code></td></tr>
+              <tr><th scope="row"><code>Boolean("Texto Cualquiera")</code></th><td><code>boolean (true)</code></td><td><code>boolean (true)</code></td></tr>
+              <tr><th scope="row"><code>Boolean("")</code></th><td><code>boolean(false)</code></td><td><code>boolean (false)</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" onclick="ejercicio2()">
+          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 2
+        </button>
+        <span class="small text-body-secondary ms-2">El resultado sale en la consola (F12).</span>
+      </div>
+    </section>
 
   </main>
 
