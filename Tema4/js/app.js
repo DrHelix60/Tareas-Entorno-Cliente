@@ -6,6 +6,7 @@ const MAXIMO_REPETICIONES = 20;
 // Ejercicio 1 · Calculadora
 // ============================================================
 
+// Modelo base: leo los dos números, valido y opero
 function sumar() {
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
@@ -20,6 +21,7 @@ function sumar() {
   }
 }
 
+// Mismo patrón que sumar, cambio el operador
 function restar() {
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
@@ -48,6 +50,8 @@ function multiplicar() {
   }
 }
 
+// Aquí añado un else if para controlar la división entre 0,
+// ya que JS no lanza error, devuelve Infinity
 function dividir() {
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
@@ -65,6 +69,7 @@ function dividir() {
   }
 }
 
+// El operador ** eleva el primero al segundo
 function potencia() {
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
@@ -79,6 +84,7 @@ function potencia() {
   }
 }
 
+// El módulo también falla con 0 (devuelve NaN), así que lo controlo igual
 function modulo() {
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
@@ -100,6 +106,7 @@ function modulo() {
 // Ejercicio 2 · Comparaciones
 // ============================================================
 
+// Comparo con > y <, si no se cumple ninguno son iguales
 function cualEsMayor() {
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
@@ -119,6 +126,7 @@ function cualEsMayor() {
   }
 }
 
+// Uso % 1 !== 0 para detectar decimales, y ternario para par/impar
 function parOImpar() {
   const n1 = leerNumero("numero1");
 
@@ -139,6 +147,8 @@ function parOImpar() {
 // Ejercicio 3 · Bucles con texto
 // ============================================================
 
+// Valido con || para cubrir vacío, decimales y exceso en una sola condición.
+// Uso return para salir sin ejecutar el bucle si hay error.
 function bucleFor() {
   const veces = leerNumero("numero1");
   limpiarSalida();
@@ -160,6 +170,8 @@ function bucleFor() {
   console.log(`Bucle for: ${contador} repeticiones`);
 }
 
+// Mismo funcionamiento que for, pero declaro e incremento i manualmente.
+// Útil cuando no sé de antemano cuántas vueltas daré.
 function bucleWhile() {
   const veces = leerNumero("numero1");
   limpiarSalida();
@@ -183,6 +195,8 @@ function bucleWhile() {
   console.log(`Bucle while: ${contador} repeticiones`);
 }
 
+// La condición va al final, así el bloque se ejecuta al menos una vez.
+// Con 0 o negativo, for y while no entran, pero este sí.
 function bucleDoWhile() {
   const veces = leerNumero("numero1");
   limpiarSalida();
@@ -210,6 +224,8 @@ function bucleDoWhile() {
 // Ejercicio 4 · Bucles con badges
 // ============================================================
 
+// Igual que bucleFor, pero uso anadirBadge en vez de anadirLinea.
+// El color alterna con ternario: par verde, impar azul.
 function badgesFor() {
   const veces = leerNumero("numero1");
   limpiarSalida();
