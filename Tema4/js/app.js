@@ -211,15 +211,71 @@ function bucleDoWhile() {
 // ============================================================
 
 function badgesFor() {
-  // TODO: como bucleFor(), pero cada vuelta añade un badge con el número de la repetición:
-  //         anadirBadge(i, "primary");
-  // TODO: los pares, de un color y los impares, de otro. Elige el color con el operador ternario.
+  const veces = leerNumero("numero1");
+  limpiarSalida();
+
+  if (Number.isNaN(veces) || veces % 1 !== 0 || veces > MAXIMO_REPETICIONES) {
+    mostrar(`El número debe ser entero y no pasar de ${MAXIMO_REPETICIONES}.`, "danger");
+    console.warn(`Badges for: número inválido (${veces})`);
+    return;
+  }
+
+  let contador = 0;
+  for (let i = 1; i <= veces; i++) {
+    const color = i % 2 === 0 ? "success" : "primary";
+    anadirBadge(i, color);
+    contador++;
+  }
+
+  const total = contador === 1 ? "1 repetición" : `${contador} repeticiones`;
+  anadirLinea(`Total: ${total}`);
+  console.log(`Badges for: ${contador} repeticiones`);
 }
 
 function badgesWhile() {
-  // TODO: lo mismo que badgesFor(), con un while.
+  const veces = leerNumero("numero1");
+  limpiarSalida();
+
+  if (Number.isNaN(veces) || veces % 1 !== 0 || veces > MAXIMO_REPETICIONES) {
+    mostrar(`El número debe ser entero y no pasar de ${MAXIMO_REPETICIONES}.`, "danger");
+    console.warn(`Badges while: número inválido (${veces})`);
+    return;
+  }
+
+  let contador = 0;
+  let i = 1;
+  while (i <= veces) {
+    const color = i % 2 === 0 ? "success" : "primary";
+    anadirBadge(i, color);
+    contador++;
+    i++;
+  }
+
+  const total = contador === 1 ? "1 repetición" : `${contador} repeticiones`;
+  anadirLinea(`Total: ${total}`);
+  console.log(`Badges while: ${contador} repeticiones`);
 }
 
 function badgesDoWhile() {
-  // TODO: lo mismo que badgesFor(), con un do…while.
+  const veces = leerNumero("numero1");
+  limpiarSalida();
+
+  if (Number.isNaN(veces) || veces % 1 !== 0 || veces > MAXIMO_REPETICIONES) {
+    mostrar(`El número debe ser entero y no pasar de ${MAXIMO_REPETICIONES}.`, "danger");
+    console.warn(`Badges do...while: número inválido (${veces})`);
+    return;
+  }
+
+  let contador = 0;
+  let i = 1;
+  do {
+    const color = i % 2 === 0 ? "success" : "primary";
+    anadirBadge(i, color);
+    contador++;
+    i++;
+  } while (i <= veces);
+
+  const total = contador === 1 ? "1 repetición" : `${contador} repeticiones`;
+  anadirLinea(`Total: ${total}`);
+  console.log(`Badges do...while: ${contador} repeticiones`);
 }
