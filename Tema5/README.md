@@ -53,4 +53,4 @@ textContent interpreta todo como un String directamente, por lo que da igual si 
 
 ## Uso de IA
 
-He utilizado IA para eliminar los comentarios del README y las breves explicaciones. He usado el modelo Qwen3.7-Plus.
+He utilizado IA para eliminar los comentarios del README y las breves explicaciones. También lo he usado para algunos comentarios de código. He usado el modelo Qwen3.7-Plus.
