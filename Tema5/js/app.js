@@ -180,13 +180,28 @@ function borrarCompletadas() {
 // ============================================================
 
 function verDatosVentana() {
-  // El modelo: el tamaño de la ventana
   const ancho = window.innerWidth;
   const alto = window.innerHeight;
   document.querySelector("#datoVentana").textContent = `${ancho} × ${alto} px`;
 
-  // TODO: con if / else if, el punto de corte de Bootstrap según el ancho: xs (< 576), sm (≥ 576), md (≥ 768),
-  //       lg (≥ 992), xl (≥ 1200) y xxl (≥ 1400). Escríbelo en #datoPunto.
-  // TODO: el tamaño de la pantalla (screen.width y screen.height) en #datoPantalla.
-  // TODO: la URL (location.href) en #datoUrl y el idioma del navegador (navigator.language) en #datoIdioma.
+  const datoPunto = document.querySelector("#datoPunto");
+  if (ancho < 576) {
+    datoPunto.textContent = "xs";
+  } else if (ancho < 768) {
+    datoPunto.textContent = "sm";
+  } else if (ancho < 992) {
+    datoPunto.textContent = "md";
+  } else if (ancho < 1200) {
+    datoPunto.textContent = "lg";
+  } else if (ancho < 1400) {
+    datoPunto.textContent = "xl";
+  } else {
+    datoPunto.textContent = "xxl";
+  }
+
+  document.querySelector("#datoPantalla").textContent = `${screen.width} × ${screen.height} px`;
+  document.querySelector("#datoUrl").textContent = location.href;
+  document.querySelector("#datoIdioma").textContent = navigator.language;
+
+  console.log("Datos de la ventana mostrados");
 }
