@@ -46,6 +46,9 @@ function anadirParrafo() {
   nuevoParrafo.textContent = `Párrafo nuevo ${numero}`;
   contenido.append(nuevoParrafo);
   
+  // Con esto nos aseguramos de esconder el mensaje de error si anteriormente borramos todos los parrafos. No era necesario pero lo he hecho por gusto
+  document.querySelector("#aviso2").classList.add("d-none");
+
   console.log(`Añadido párrafo número ${numero}`);
 }
 
@@ -72,16 +75,18 @@ function activarResaltado() {
   const parrafos = document.querySelectorAll("#contenido p");
 
   for (const parrafo of parrafos) {
-    // addEventListener("mouseenter", ...) ejecuta la función cuando el ratón entra en el párrafo.
-    // Los eventos los veremos a fondo en el tema 9: de momento, copia este modelo.
     parrafo.addEventListener("mouseenter", function () {
       parrafo.classList.add("bg-body-secondary");
     });
 
-    // TODO: lo mismo con "mouseleave" (cuando el ratón sale) para quitar la clase.
+    parrafo.addEventListener("mouseleave", 
+      function(){
+        parrafo.classList.remove("bg-body-secondary");
+      }
+    );
   }
 
-  // TODO: un console.log() que diga en cuántos párrafos se ha activado (parrafos.length).
+  console.log(`Resaltado activado en ${parrafos.length} párrafos`);
 }
 
 
