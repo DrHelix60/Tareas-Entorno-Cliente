@@ -126,19 +126,52 @@ function cambiarConHtml() {
 // ============================================================
 
 function anadirTarea() {
-  // TODO: lee el texto de #tareaInput (value + trim). Si está vacío, muestra un mensaje en #error5.
-  // TODO: si no, crea un <li class="list-group-item"> con dos elementos dentro:
-  //         · un <input> de tipo "checkbox" con la clase "form-check-input",
-  //         · un <span> con el texto de la tarea (textContent).
-  //       Cuelga el <li> de #listaTareas y vacía la casilla (value = "").
-  // TODO: actualiza #totalTareas con el número de <li> que hay en la lista.
+  const texto = document.querySelector("#tareaInput").value.trim();
+  const error = document.querySelector("#error5");
+  const lista = document.querySelector("#listaTareas");
+  const contador = document.querySelector("#totalTareas");
+
+  if (texto === "") {
+    error.textContent = "El campo está vacío.";
+    error.classList.remove("d-none");
+  } else {
+    const li = document.createElement("li");
+    li.classList.add("list-group-item");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.classList.add("form-check-input");
+
+    const span = document.createElement("span");
+    span.textContent = texto;
+
+    li.append(checkbox, span);
+    lista.append(li);
+
+    document.querySelector("#tareaInput").value = "";
+    error.classList.add("d-none");
+  }
+
+  contador.textContent = lista.children.length;
 }
 
 function borrarCompletadas() {
-  // TODO: selecciona las casillas marcadas: document.querySelectorAll("#listaTareas input:checked").
-  // TODO: si no hay ninguna, avisa en #error5. Si hay, recórrelas con for…of y borra el <li> de cada una
-  //       (el <li> es el padre de la casilla: parentElement).
-  // TODO: actualiza #totalTareas.
+  const completadas = document.querySelectorAll("#listaTareas input:checked");
+  const error = document.querySelector("#error5");
+  const contador = document.querySelector("#totalTareas");
+  const lista = document.querySelector("#listaTareas");
+
+  if (completadas.length === 0) {
+    error.textContent = "No hay tareas completadas.";
+    error.classList.remove("d-none");
+  } else {
+    for (const casilla of completadas) {
+      casilla.parentElement.remove();
+    }
+    error.classList.add("d-none");
+  }
+
+  contador.textContent = lista.children.length;
 }
 
 
