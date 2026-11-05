@@ -314,21 +314,46 @@ mostrarNotas();
 const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 function verDobles() {
-  // TODO: con map(), un array nuevo con el doble de cada número.
-  // TODO: escribe en #salida5 el resultado y, debajo, numeros (para que se vea que no ha cambiado).
+  const dobles = numeros.map(function (n) {
+    return n * 2;
+  });
+  const salida = document.querySelector("#salida5");
+  salida.textContent = "Dobles: " + comoTexto(dobles) + "\nOriginal: " + comoTexto(numeros);
+  console.log("Ejercicio 5 map:", dobles);
 }
 
 function verPares() {
-  // TODO: con filter(), los números pares (n % 2 === 0). Escríbelos en #salida5 como en verDobles().
+  const pares = numeros.filter(function (n) {
+    return n % 2 === 0;
+  });
+  const salida = document.querySelector("#salida5");
+  salida.textContent = "Pares: " + comoTexto(pares) + "\nOriginal: " + comoTexto(numeros);
+  console.log("Ejercicio 5 filter:", pares);
 }
 
 function verSuma() {
-  // TODO: con reduce(), la suma de todos los números (empieza en 0). Escríbela en #salida5.
+  const suma = numeros.reduce(function (acc, n) {
+    return acc + n;
+  }, 0);
+  const salida = document.querySelector("#salida5");
+  salida.textContent = "Suma: " + suma + "\nOriginal: " + comoTexto(numeros);
+  console.log("Ejercicio 5 reduce:", suma);
 }
 
 function verCadena() {
-  // TODO: los tres seguidos: los pares, después sus dobles y al final la suma de esos dobles.
-  //       Escribe en #salida5 una línea por paso.
+  const pares = numeros.filter(function (n) {
+    return n % 2 === 0;
+  });
+  const dobles = pares.map(function (n) {
+    return n * 2;
+  });
+  const suma = dobles.reduce(function (acc, n) {
+    return acc + n;
+  }, 0);
+
+  const salida = document.querySelector("#salida5");
+  salida.textContent = "Pares: " + comoTexto(pares) + "\nDobles de pares: " + comoTexto(dobles) + "\nSuma: " + suma;
+  console.log("Ejercicio 5 cadena:", suma);
 }
 
 
