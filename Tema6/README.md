@@ -11,7 +11,7 @@
 > 5. Sustituye las imágenes de `capturas/` por las tuyas, **con el mismo nombre**.
 > 6. Todo lo que va entre [corchetes] es un hueco: cámbialo por lo tuyo. Al terminar, borra este aviso.
 
-[Una o dos líneas: qué hay en esta carpeta y cómo se ve. Por ejemplo: abrir la carpeta en VS Code, pulsar **Go Live** y probar los botones con la consola abierta (F12).]
+Para probar la página, abre la carpeta en VS Code, lanza Live Server y usa la consola del navegador para ver los logs de cada ejercicio.
 
 ## Capturas
 
@@ -19,46 +19,46 @@
 
 <img src="capturas/a-pagina.png" alt="La página recién cargada con mi nombre en la navbar" width="600">
 
-[Qué se ve nada más cargar: tu nombre, los colores, la tabla de productos y las ciudades.]
+Se ven los datos iniciales: los tres colores, la tabla de productos completa y las ocho ciudades con su índice.
 
 ### b) Ejercicios 1 y 2: la ficha y los colores
 
 <img src="capturas/b-ej1-ej2.png" alt="La ficha de estudiante y la lista de colores" width="600">
 
-[La ficha después de cumplir años y la lista de colores después de añadir y quitar alguno. Qué método has usado para cada cosa.]
+La ficha muestra la edad incrementada tras usar `cumplirAnios()`. En colores se ve la lista actualizada tras añadir elementos con `push()` y quitarlos con `pop()` o `shift()`.
 
 ### c) Ejercicio 3: el catálogo ordenado por precio
 
 ![La tabla de productos ordenada por precio](capturas/c-ej3-ordenado.png)
 
-[Cómo es tu función de comparación y por qué ordenas una copia.]
+La tabla muestra los productos ordenados de menor a mayor precio usando `sort()` sobre una copia del array original para no modificar los datos base.
 
 ### d) Ejercicio 4: las notas y la media
 
 ![Las notas con su color y la media](capturas/d-ej4-notas.png)
 
-[Cinco notas como mínimo, aprobadas y suspensas, con su media.]
+Se muestran cinco notas con badges verdes (aprobadas) o rojas (suspensas). La media se calcula correctamente sumando todas las notas y dividiendo por la cantidad total.
 
 ### e) Ejercicio 5: los tres métodos seguidos
 
 ![El resultado de filter, map y reduce encadenados](capturas/e-ej5-cadena.png)
 
-[Qué hace cada paso y qué número sale al final.]
+El proceso filtra los pares, calcula sus dobles y suma el resultado final, obteniendo 60. El array original `numeros` permanece inalterado.
 
 ### f) Ejercicio 6: después de splice y de buscar una ciudad
 
 ![Las ciudades después de splice y una búsqueda](capturas/f-ej6-splice.png)
 
-[Qué ciudades ha quitado splice, en qué posición ha quedado la que has buscado y por qué.]
+Tras ejecutar `splice(2, 2)`, desaparecen Málaga y Córdoba. La búsqueda indica la nueva posición de las ciudades restantes o -1 si no se encuentran. El índice de Sevilla tras el splie es 1.
 
 ## Reflexión
 
-[De 5 a 8 líneas: ¿qué métodos de los que has usado cambian el array original y cuáles devuelven uno nuevo? Pon como ejemplo lo que pasa en el ejercicio 6 con slice y con splice, y explica por qué en el ejercicio 3 ordenas una copia.]
+Los métodos como `push`, `pop`, `shift` y `splice` modifican directamente el array original, mientras que `slice`, `map`, `filter` y `find` devuelven un nuevo array sin alterar el original. En el ejercicio 6, `slice` crea una sublista temporal sin afectar a `ciudades`, pero `splice` elimina elementos permanentemente, por lo que es necesario restaurar el array. En el ejercicio 3 se ordena una copia con `[...productos]` para mantener el catálogo original intacto y poder volver a mostrarlo o filtrarlo sin perder el orden inicial.
 
 ## Fuentes
 
-- [Título de la página](https://enlace-a-la-fuente)
+- Qwen3.7-Plus
 
 ## Uso de IA
 
-[Si has usado IA: qué herramienta, para qué y qué hiciste después con su respuesta. Si no la has usado, borra este apartado.]
+He usado Qwen3.7-Plus para resolver dudas y para empezar los comentarios.
