@@ -1,5 +1,5 @@
 /*
-  Tarea 6 · DWEC · [Tu nombre y apellidos]
+  Tarea 6 · DWEC · Rafael Santiago De La Torre jiménez
   Objetos y arrays.
 
   Cómo usar esta plantilla:
@@ -31,29 +31,48 @@ function comoTexto(lista) {
 // Ejercicio 1 · Ficha de estudiante
 // ============================================================
 
-// TODO: completa el objeto literal con tus datos: nombre, apellidos, edad y curso.
-// TODO: añádele el método presentarse(), que devuelve una frase con this.nombre, this.apellidos, this.edad y this.curso.
-//       Por ejemplo: «Soy [nombre] [apellidos], tengo [edad] años y estudio [curso].»
 const estudiante = {
-
+  nombre: "Rafael",
+  apellidos: "De La Torre Jiménez",
+  edad: 23,
+  curso: "2º DAW",
+  presentarse: function () {
+    return "Soy " + this.nombre + " " + this.apellidos + ", tengo " + this.edad + " años y estudio " + this.curso + ".";
+  }
 };
 
 function verFicha() {
-  // TODO: vacía #salida1 (textContent = "").
-  // TODO: crea un <ul class="list-group"> con un <li class="list-group-item"> por propiedad: «nombre: ...», «edad: ...».
-  //       Pista: guarda las claves en un array, ["nombre", "apellidos", "edad", "curso"], recórrelo con forEach
-  //       y lee cada valor con corchetes: estudiante[clave].
-  // TODO: debajo, un <p> con la frase de estudiante.presentarse().
-  // TODO: console.log() del objeto entero.
+  const salida = document.querySelector("#salida1");
+  salida.textContent = "";
+
+  const ul = document.createElement("ul");
+  ul.classList.add("list-group");
+
+  const claves = ["nombre", "apellidos", "edad", "curso"];
+  claves.forEach(function (clave) {
+    const li = document.createElement("li");
+    li.classList.add("list-group-item");
+    li.textContent = clave + ": " + estudiante[clave];
+    ul.append(li);
+  });
+
+  salida.append(ul);
+
+  const p = document.createElement("p");
+  p.textContent = estudiante.presentarse();
+  salida.append(p);
+
+  console.log("Ejercicio 1:", estudiante);
 }
 
 function cumplirAnios() {
-  // TODO: suma 1 a la edad del estudiante y vuelve a pintar la ficha (llama a verFicha()).
+  estudiante.edad++;
+  verFicha();
 }
 
 function quitarCurso() {
-  // TODO: borra la propiedad curso con delete y vuelve a pintar la ficha.
-  //       Fíjate en lo que sale ahora en el curso y explícalo en el README.
+  delete estudiante.curso;
+  verFicha();
 }
 
 
@@ -66,7 +85,7 @@ const colores = ["rojo", "verde", "azul"];
 
 function mostrarColores() {
   const lista = document.querySelector("#listaColores");
-  lista.textContent = "";   // vaciamos la lista antes de volver a pintarla
+  lista.textContent = "";
 
   colores.forEach(function (color) {
     const li = document.createElement("li");
@@ -93,7 +112,7 @@ function anadirColor() {
     return;
   }
 
-  colores.push(color);   // push añade al final
+  colores.push(color);
   casilla.value = "";
   document.querySelector("#aviso2").classList.add("d-none");
   mostrarColores();
@@ -179,7 +198,7 @@ mostrarProductos();   // la tabla completa nada más cargar
 // ============================================================
 
 const alumno = {
-  nombre: "[Tu nombre]",
+  nombre: "Rafa",
   notas: []
   // TODO: método anadirNota(nota): si la nota no es un número (Number.isNaN) o no está entre 0 y 10, devuelve false;
   //       si es válida, la añade a this.notas con push y devuelve true.
