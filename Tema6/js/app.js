@@ -180,25 +180,48 @@ function pintarProductos(lista) {
 }
 
 function mostrarProductos() {
-  // TODO: pinta todos los productos con pintarProductos() y escribe en #mensaje3 cuántos hay.
+  pintarProductos(productos);
+  document.querySelector("#mensaje3").textContent = "Hay " + productos.length + " productos.";
 }
 
 function ordenarPorPrecio() {
-  // TODO: haz una copia del array con [...productos] y ordénala con sort() de más barato a más caro.
-  //       sort necesita una función de comparación: function (a, b) { return ... }.
-  //       ¿Por qué una copia? Explícalo en el README.
-  // TODO: pinta la copia y escribe en #mensaje3 cómo están ordenados.
+  const copia = [...productos];
+  copia.sort(function (a, b) {
+    return a.precio - b.precio;
+  });
+  pintarProductos(copia);
+  document.querySelector("#mensaje3").textContent = "Ordenados de más barato a más caro.";
+  console.log("Ejercicio 3: sort copia");
 }
 
 function filtrarCaros() {
-  // TODO: con filter(), los productos de más de 50 €. Píntalos y escribe en #mensaje3 cuántos son.
+  const caros = productos.filter(function (p) {
+    return p.precio > 50;
+  });
+  pintarProductos(caros);
+  document.querySelector("#mensaje3").textContent = caros.length + " productos de más de 50 €.";
 }
 
 function buscarProducto() {
-  // TODO: lee #buscarProducto (value, trim y toLowerCase). Si está vacío, avisa en #mensaje3.
-  // TODO: con find(), el primer producto cuyo nombre en minúsculas contenga ese texto (includes).
-  // TODO: find devuelve undefined si no encuentra nada: en ese caso, dilo en #mensaje3 y vacía la tabla.
-  //       Si lo encuentra, píntalo solo a él: pintarProductos([encontrado]).
+  const texto = document.querySelector("#buscarProducto").value.trim().toLowerCase();
+  const mensaje = document.querySelector("#mensaje3");
+
+  if (texto === "") {
+    mensaje.textContent = "Escribe algo para buscar.";
+    return;
+  }
+
+  const encontrado = productos.find(function (p) {
+    return p.nombre.toLowerCase().includes(texto);
+  });
+
+  if (encontrado === undefined) {
+    mensaje.textContent = "No se ha encontrado ningún producto.";
+    document.querySelector("#tablaProductos").textContent = "";
+  } else {
+    mensaje.textContent = "Producto encontrado: " + encontrado.nombre;
+    pintarProductos([encontrado]);
+  }
 }
 
 mostrarProductos();   // la tabla completa nada más cargar
